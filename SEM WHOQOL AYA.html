@@ -1,0 +1,1042 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masterclass SEM: Ayahuasca, Espiritualidade e Qualidade de Vida</title>
+  <style>
+    :root {
+      --bg-main: #0c1811;
+      --bg-card: #14251b;
+      --bg-card-hover: #1b3325;
+      --border-color: #244431;
+      --text-main: #e6ede8;
+      --text-muted: #9bb3a3;
+      --accent-gold: #d4a342;
+      --accent-gold-light: #f5cf7a;
+      --accent-green: #38bdf8;
+      --accent-leaf: #34d399;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f87171;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      --font-mono: "Fira Code", Consolas, Monaco, "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    aside {
+      width: 280px;
+      background: #09130d;
+      border-right: 1px solid var(--border-color);
+      padding: 1.5rem 1rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 1.25rem;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-gold) 0%, #15271d 80%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #0c1811;
+    }
+
+    .brand-text h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-gold-light);
+      letter-spacing: 0.5px;
+    }
+
+    .brand-text span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-group-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-gold);
+      margin: 1.25rem 0 0.5rem 0.5rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.75rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      margin-bottom: 2px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-main);
+      background-color: var(--bg-card);
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 2.5rem 3.5rem;
+      max-width: 1200px;
+      overflow-y: auto;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--accent-gold);
+    }
+
+    .badge.green {
+      color: var(--accent-leaf);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    header h2 {
+      font-size: 1.85rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 850px;
+    }
+
+    /* Content Cards & Sections */
+    section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-gold-light);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: #3b6b4e;
+    }
+
+    /* Tooltip styling */
+    .term {
+      border-bottom: 1px dashed var(--accent-gold);
+      color: var(--accent-gold-light);
+      cursor: help;
+      position: relative;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .term:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #060e09;
+      color: var(--text-main);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--accent-gold);
+      font-size: 0.75rem;
+      white-space: normal;
+      width: 260px;
+      z-index: 100;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+      line-height: 1.35;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      aside { width: 100%; height: auto; position: relative; }
+      main { padding: 1.5rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* Interactive Path Diagram (SVG-like Simulator) */
+    .path-simulator {
+      background: #09130d;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .nodes-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+    }
+
+    .node-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .node {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .node:hover, .node.active-node {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 12px rgba(212, 163, 66, 0.25);
+      background: var(--bg-card-hover);
+    }
+
+    .node-title {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .node-meta {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .connection-panel {
+      background: #0f1c14;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Tabs for Code and Guides */
+    .tab-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      color: var(--accent-gold-light);
+      background: var(--bg-card);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Code Blocks */
+    pre {
+      background: #070e09;
+      border: 1px solid #1a3324;
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: #d1fae5;
+      line-height: 1.5;
+      position: relative;
+    }
+
+    .code-comment { color: #52796f; }
+    .code-operator { color: var(--accent-gold); font-weight: bold; }
+    .code-func { color: #93c5fd; }
+    .code-var { color: #e2e8f0; }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-gold);
+    }
+
+    /* Callouts */
+    .callout {
+      border-left: 4px solid var(--accent-gold);
+      background: rgba(212, 163, 66, 0.08);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .callout.alert {
+      border-left-color: var(--accent-rose);
+      background: rgba(248, 113, 113, 0.08);
+    }
+
+    .callout.leaf {
+      border-left-color: var(--accent-leaf);
+      background: rgba(52, 211, 153, 0.08);
+    }
+
+    .callout strong {
+      color: #ffffff;
+    }
+
+    /* Glossary Search */
+    .search-box {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #09130d;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .search-box:focus {
+      outline: 1px solid var(--accent-gold);
+    }
+
+    .glossary-item {
+      padding: 0.8rem;
+      border-bottom: 1px solid #1a3123;
+    }
+
+    .glossary-item:last-child {
+      border-bottom: none;
+    }
+
+    .glossary-term {
+      font-weight: 700;
+      color: var(--accent-gold-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .glossary-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Comparison Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    th {
+      background: #09130d;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .highlight-cell {
+      color: var(--accent-leaf);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside>
+    <div class="brand">
+      <div class="brand-icon">Ψ</div>
+      <div class="brand-text">
+        <h1>SEM Ayahuasca Master</h1>
+        <span>Plataforma Pedagógica</span>
+      </div>
+    </div>
+
+    <div class="nav-group-title">Módulos de Aprendizagem</div>
+    <div class="nav-links">
+      <a href="#modulo1" class="active">1. Amostra & UDV</a>
+      <a href="#modulo2">2. Dicionário de Variáveis</a>
+      <a href="#modulo3">3. Simulador de Caminhos</a>
+      <a href="#modulo4">4. Pipeline no R (lavaan)</a>
+      <a href="#modulo5">5. Métricas & Resultados</a>
+      <a href="#modulo6">6. Guia de Redação JPD</a>
+      <a href="#glossario">7. Glossário Psicométrico</a>
+    </div>
+
+    <div class="nav-group-title">Ficha Técnica</div>
+    <div style="font-size: 0.75rem; color: var(--text-muted); padding: 0.5rem;">
+      <p><strong>N total:</strong> 1.414</p>
+      <p><strong>N analítico:</strong> 1.365</p>
+      <p><strong>Estimador:</strong> DWLS / WLSMV</p>
+      <p><strong>Alvo:</strong> J. Psychoactive Drugs</p>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <header>
+      <div class="badge-bar">
+        <span class="badge">N = 1.365 Sócios UDV</span>
+        <span class="badge green">CFI = 0.99 (Ajuste Excepcional)</span>
+        <span class="badge">Estimador DWLS</span>
+        <span class="badge">WHOQOL-BREF & SRPB</span>
+      </div>
+      <h2>Modelagem de Equações Estruturais (SEM): Espiritualidade, Ayahuasca e Qualidade de Vida</h2>
+      <p>
+        Este ambiente interativo foi projetado para guiar você em cada decisão analítica, do pré-processamento das matrizes no <code>lavaan</code> até a redação competitiva para periódicos internacionais de alto impacto.
+      </p>
+    </header>
+
+    <!-- Módulo 1: Amostra & Delineamento -->
+    <section id="modulo1">
+      <h3 class="section-title">1. Contexto dos Dados e Amostra da UDV</h3>
+      <div class="card">
+        <p>
+          Os dados foram coletados junto a sócios da <span class="term" data-tooltip="União do Vegetal: religião ayahuasqueira brasileira fundada em 1961 por Mestre Gabriel, caracterizada pelo consumo ritual do chá Hoasca em ambiente ritualístico regrado.">União do Vegetal (UDV)</span>. A amostra inicial contou com <strong>N = 1.414</strong> respondentes. Após o tratamento de <span class="term" data-tooltip="Casos com respostas incompletas ou padrões sistemáticos de preenchimento que foram removidos na fase de auditoria dos dados.">dados faltantes (missing data)</span>, restou uma amostra analítica robusta de <strong>N = 1.365</strong>.
+        </p>
+
+        <div class="grid-2" style="margin-top: 1.25rem;">
+          <div style="background: #0a150e; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: var(--accent-gold); font-size: 0.9rem; margin-bottom: 0.5rem;">Por que esta amostra é especial para publicações?</h4>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem;">
+              <li>A maioria dos estudos com ayahuasca conta com <span class="term" data-tooltip="Amostras pequenas (< 100) têm baixo poder estatístico para modelos complexos e não suportam muitas variáveis latentes simultâneas.">N reduzido (< 100)</span>.</li>
+              <li>Com N > 1.000, o poder estatístico permite rodar modelos de 2ª ordem com estimadores assintóticos robustos.</li>
+              <li>Ambiente institucional estável: reduz o ruído de "set & setting" não controlado.</li>
+            </ul>
+          </div>
+          <div style="background: #0a150e; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: var(--accent-leaf); font-size: 0.9rem; margin-bottom: 0.5rem;">Delineamento Transversal (Cross-Sectional)</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+              Coleta em ponto único no tempo. Embora a SEM desenhe setas direcionais com base na teoria, <strong>não podemos afirmar causalidade no sentido biomédico estrito</strong>. No artigo, usamos verbos como <em>"previu"</em>, <em>"associou-se"</em> ou <em>"explicou variância"</em>, nunca <em>"a ayahuasca curou"</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulo 2: Dicionário de Variáveis -->
+    <section id="modulo2">
+      <h3 class="section-title">2. Dicionário de Variáveis e Instrumentos</h3>
+      <div class="card">
+        <p style="margin-bottom: 1rem; font-size: 0.9rem;">
+          Passe o mouse sobre os itens para inspecionar seu papel psicométrico no modelo:
+        </p>
+
+        <div class="grid-3">
+          <!-- Bloco BREF -->
+          <div style="background: #09130d; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: var(--accent-gold-light); font-size: 0.85rem; margin-bottom: 0.6rem;">WHOQOL-BREF (Desfechos)</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem;">4 Domínios Latentes (Q1 e Q2 gerais ficam de fora dos domínios):</p>
+            <ul style="font-size: 0.8rem; list-style: none; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li><strong style="color:#fff;">Físico:</strong> Dor (<span class="term" data-tooltip="Item invertido na escala original: foi recodificado para que escores maiores indiquem melhor estado de saúde.">.r</span>), Trat. Médico (.r), Energia, Sono, Locomoção, Atividades, Trabalho.</li>
+              <li><strong style="color:#fff;">Psicológico:</strong> Sentido, Apreço, Concentração, Autoimagem, Autoestima, Sent. Negativos (.r).</li>
+              <li><strong style="color:#fff;">Social:</strong> Relações Pessoais, Vida Sexual, Apoio de Amigos.</li>
+              <li><strong style="color:#fff;">Ambiente:</strong> Segurança, Clima/Ambiente Físico, Dinheiro, Lazer, Moradia, Transporte, Acesso à Saúde.</li>
+            </ul>
+          </div>
+
+          <!-- Bloco SRPB -->
+          <div style="background: #09130d; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: var(--accent-leaf); font-size: 0.85rem; margin-bottom: 0.6rem;">WHOQOL-SRPB (Mediador)</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem;">8 Facetas que formam o Fator de 2ª Ordem "Espiritualidade":</p>
+            <ul style="font-size: 0.8rem; list-style: none; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li><strong style="color:#fff;">Conexão:</strong> Amparo em épocas difíceis, tolerância ao estresse.</li>
+              <li><strong style="color:#fff;">Sentido da Vida:</strong> Finalidade e motivação de viver.</li>
+              <li><strong style="color:#fff;">Admiração:</strong> Beleza da natureza, gratidão, inspiração.</li>
+              <li><strong style="color:#fff;">Integração:</strong> Equilíbrio mente-corpo-alma (<span class="highlight-cell">R² = 0.90</span>).</li>
+              <li><strong style="color:#fff;">Força Espiritual:</strong> Resiliência interna (<span class="highlight-cell">R² = 0.88</span>).</li>
+              <li><strong style="color:#fff;">Paz Interior:</strong> Harmonia consigo mesmo.</li>
+              <li><strong style="color:#fff;">Esperança:</strong> Otimismo frente às incertezas.</li>
+              <li><strong style="color:#fff;">Fé (Fhe):</strong> Conforto e força diária no bem-estar.</li>
+            </ul>
+          </div>
+
+          <!-- Bloco Covariáveis -->
+          <div style="background: #09130d; padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: var(--accent-amber); font-size: 0.85rem; margin-bottom: 0.6rem;">Preditores e Controles</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem;">Variáveis observadas de contexto e demografia:</p>
+            <ul style="font-size: 0.8rem; list-style: none; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li><strong style="color:#fff;">FAy:</strong> Frequência de consumo da ayahuasca (Ordinal: &le;1x/mês até &ge;4x/mês).</li>
+              <li><strong style="color:#fff;">T.UDV:</strong> Tempo de filiação à UDV (Ordinal: &lt;10 anos até veteranos).</li>
+              <li><strong style="color:#fff;">Rend.Fami:</strong> Renda familiar (Faixas econômicas).</li>
+              <li><strong style="color:#fff;">Age:</strong> Faixa etária dos participantes.</li>
+              <li><strong style="color:#fff;">Masc:</strong> Sexo biológico / Gênero (0 = Feminino, 1 = Masculino).</li>
+              <li><strong style="color:#fff;">Instruc:</strong> Nível educacional concluído.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulo 3: Simulador Interativo do Modelo Estrutural -->
+    <section id="modulo3">
+      <h3 class="section-title">3. Simulador de Caminhos: A Arquitetura do Modelo</h3>
+      <div class="path-simulator">
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Clique sobre qualquer bloco ou componente para carregar a <strong>interpretação psicométrica</strong> e a <strong>força do coeficiente padronizado (&beta;)</strong>:
+        </p>
+
+        <div class="nodes-container">
+          <!-- Coluna 1: Preditores UDV -->
+          <div class="node-col">
+            <div class="node" onclick="inspectNode('fay')">
+              <div class="node-title">FAy (Frequência)</div>
+              <div class="node-meta">Preditivo &bull; &beta; = 0.10*</div>
+            </div>
+            <div class="node" onclick="inspectNode('tudv')">
+              <div class="node-title">T.UDV (Tempo)</div>
+              <div class="node-meta">Não significativo &bull; &beta; = 0.02</div>
+            </div>
+            <div class="node" onclick="inspectNode('renda')">
+              <div class="node-title">Renda Familiar</div>
+              <div class="node-meta">Controle &bull; &beta; = 0.15* (Ambiente)</div>
+            </div>
+          </div>
+
+          <div style="font-size: 1.5rem; color: var(--accent-gold);">&#10142;</div>
+
+          <!-- Coluna 2: Mediador -->
+          <div class="node-col">
+            <div class="node active-node" onclick="inspectNode('espiritualidade')" style="border-color: var(--accent-gold);">
+              <div class="node-title" style="color: var(--accent-gold-light);">Espiritualidade Geral</div>
+              <div class="node-meta">Fator de 2ª Ordem (8 Facetas)</div>
+            </div>
+          </div>
+
+          <div style="font-size: 1.5rem; color: var(--accent-leaf);">&#10142;</div>
+
+          <!-- Coluna 3: Desfechos BREF -->
+          <div class="node-col">
+            <div class="node" onclick="inspectNode('psico')">
+              <div class="node-title">Psicológico</div>
+              <div class="node-meta">&beta; = 0.91 &bull; R² = 63%</div>
+            </div>
+            <div class="node" onclick="inspectNode('ambiente')">
+              <div class="node-title">Ambiente</div>
+              <div class="node-meta">&beta; = 0.86 &bull; R² = 42%</div>
+            </div>
+            <div class="node" onclick="inspectNode('social')">
+              <div class="node-title">Social</div>
+              <div class="node-meta">&beta; = 0.82 &bull; R² = 35%</div>
+            </div>
+            <div class="node" onclick="inspectNode('fisico')">
+              <div class="node-title">Físico</div>
+              <div class="node-meta">&beta; = 0.36 &bull; R² = 28%</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="inspector-output" class="connection-panel">
+          <strong style="color: var(--accent-gold-light);">Selecione um elemento acima</strong> para carregar o relato técnico para o artigo.
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulo 4: Pipeline no R -->
+    <section id="modulo4">
+      <h3 class="section-title">4. Pipeline Completo no R (lavaan & semPlot)</h3>
+      <div class="card">
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Este script foi otimizado para lidar com dados ordinais através do estimador <strong>WLSMV</strong> (versão robusta do DWLS). Navegue pelas abas para inspecionar cada bloco do código:
+        </p>
+
+        <div class="tab-bar">
+          <button class="tab-btn active" onclick="switchTab('tab-env')">1. Setup & Pacotes</button>
+          <button class="tab-btn" onclick="switchTab('tab-syntax')">2. Sintaxe SEM</button>
+          <button class="tab-btn" onclick="switchTab('tab-run')">3. Execução & Fit</button>
+          <button class="tab-btn" onclick="switchTab('tab-plot')">4. Gráficos em Alta Resolução</button>
+        </div>
+
+        <!-- Tab 1 -->
+        <div id="tab-env" class="tab-content active">
+          <pre><button class="copy-btn" onclick="copyCode(this)">Copiar</button><code><span class="code-comment"># --- 1. PREPARAÇÃO DO AMBIENTE ---</span>
+<span class="code-func">install.packages</span>(<span class="code-func">c</span>(<span class="code-var">"lavaan"</span>, <span class="code-var">"semPlot"</span>, <span class="code-var">"tidyverse"</span>))
+<span class="code-func">library</span>(lavaan)
+<span class="code-func">library</span>(semPlot)
+<span class="code-func">library</span>(tidyverse)
+
+<span class="code-comment"># Leitura da base e conversão para ordinal (Essencial para DWLS)</span>
+dados &lt;- <span class="code-func">read.csv</span>(<span class="code-var">"banco_udv_1365.csv"</span>)
+
+<span class="code-comment"># Inspecione se os itens invertidos (.r) já estão com pontuação alta = melhor QV</span>
+<span class="code-func">summary</span>(dados[, <span class="code-func">c</span>(<span class="code-var">"WhB.3.Dor.r"</span>, <span class="code-var">"WhB.26.Ult.Semana.r"</span>)])</code></pre>
+        </div>
+
+        <!-- Tab 2 -->
+        <div id="tab-syntax" class="tab-content">
+          <pre><button class="copy-btn" onclick="copyCode(this)">Copiar</button><code><span class="code-comment"># --- 2. ESPECIFICAÇÃO DO MODELO (Sintaxe lavaan) ---</span>
+model_sem &lt;- '
+  <span class="code-comment"># [CFA] 1ª Ordem BREF (Qualidade de Vida)</span>
+  Fisico   <span class="code-operator">=~</span> WhB.3.Dor.r + WhB.4.TratMed.r + WhB.10.Energ + WhB.15.Locomocao + WhB.16.Sono + WhB.17.AtvDiarias + WhB.18.Capac.Trabalho
+  Psico    <span class="code-operator">=~</span> WhB.5.AprVid + WhB.6.SentVida + WhB.7.Concent + WhB.11.AceitAparencia + WhB.19.Satisf.SiMesmo + WhB.26.Ult.Semana.r
+  Social   <span class="code-operator">=~</span> WhB.20.Relac.Pess + WhB.21.Vid.Sexual + WhB.22.ApoiAmig
+  Ambiente <span class="code-operator">=~</span> WhB.8.SentSegurVid + WhB.9.AmbFis + WhB.12.Dinh.Necess + WhB.13.Disp.Inform + WhB.14.Lazer + WhB.23.Cond.Mora + WhB.24.Aces.Saude + WhB.25.Transporte
+
+  <span class="code-comment"># [CFA] 1ª Ordem SRPB (Facetas Espirituais)</span>
+  Conexao    <span class="code-operator">=~</span> SR.Conex.EpocDif + SR.Conex.Tol.Estresse + SR.Conex.ComprOutros + SR.Conex.Confort.Tranq
+  Sentido    <span class="code-operator">=~</span> SR.SentVid + SR.SentVid.Cuidar + SR.SentVid.Finalidade + SR.SentVid.Motiv
+  Admiraca   <span class="code-operator">=~</span> SR.Admir + SR.Admir.Bel + SR.Admir.Inspir + SR.Admir.Agradec
+  Integracao <span class="code-operator">=~</span> SR.Integr.Lig.Men.Corp.Alm + SR.Integr.Eq.Men.Corp.Alm + SR.Integr.Acord.Viv.Sent + SR.Integr.Harmon.Viv.Sent
+  ForcaEsp   <span class="code-operator">=~</span> SR.Forc.Esp + SR.Forc.Esp.Epoc.Dif + SR.Forc.Viv.Melh + SR.Forc.Feliz
+  PazInt     <span class="code-operator">=~</span> SR.Paz.Consigo + SR.Paz.Interior + SR.Paz.Necess + SR.Paz.Harmon
+  Esperanca  <span class="code-operator">=~</span> SR.Esp + SR.Esp.Vida + SR.Esp.Otim.Qual.Vid + SR.Esp.Otim.Incert
+  Fhe        <span class="code-operator">=~</span> SR.Fe.BemEst + SR.Fe.Confort.Dia + SR.Fe.Forc.Dia + SR.Fe.Desfr.Vid
+
+  <span class="code-comment"># [CFA] 2ª Ordem: Espiritualidade Geral</span>
+  Espiritualidade <span class="code-operator">=~</span> Conexao + Sentido + Admiraca + Integracao + ForcaEsp + PazInt + Esperanca + Fhe
+
+  <span class="code-comment"># [ESTRUTURAL] Regressões do Mecanismo</span>
+  Espiritualidade <span class="code-operator">~</span> a1*FAy + a2*T.UDV
+
+  <span class="code-comment"># [ESTRUTURAL] Desfechos controlando por Socioeconômico</span>
+  Fisico   <span class="code-operator">~</span> b_fis*Espiritualidade + Age + Masc + Rend.Fami
+  Psico    <span class="code-operator">~</span> b_psi*Espiritualidade + Age + Masc + Rend.Fami
+  Social   <span class="code-operator">~</span> b_soc*Espiritualidade + Age + Masc + Rend.Fami
+  Ambiente <span class="code-operator">~</span> b_amb*Espiritualidade + Age + Masc + Rend.Fami
+
+  <span class="code-comment"># [MEDIAÇÃO] Efeitos Indiretos (a * b)</span>
+  Ind_Freq_Psico    <span class="code-operator">:=</span> a1 * b_psi
+  Ind_Freq_Ambiente <span class="code-operator">:=</span> a1 * b_amb
+  Ind_Freq_Social   <span class="code-operator">:=</span> a1 * b_soc
+  Ind_Freq_Fisico   <span class="code-operator">:=</span> a1 * b_fis
+
+  Ind_Tempo_Psico   <span class="code-operator">:=</span> a2 * b_psi
+'</code></pre>
+        </div>
+
+        <!-- Tab 3 -->
+        <div id="tab-run" class="tab-content">
+          <pre><button class="copy-btn" onclick="copyCode(this)">Copiar</button><code><span class="code-comment"># --- 3. EXECUÇÃO DO MODELO COM DWLS / WLSMV ---</span>
+fit_sem &lt;- <span class="code-func">sem</span>(
+  model       = model_sem,
+  data        = dados,
+  ordered     = TRUE,       <span class="code-comment"># Declara que as variáveis de resposta são ordinais</span>
+  estimator   = <span class="code-var">"WLSMV"</span>,     <span class="code-comment"># Versão robusta do DWLS (ideal para Likert de 5 pontos)</span>
+  std.lv      = TRUE        <span class="code-comment"># Fixa a variância das latentes em 1.0 para padronização</span>
+)
+
+<span class="code-comment"># Extração dos índices de ajuste recomendados para publicação</span>
+<span class="code-func">fitMeasures</span>(fit_sem, <span class="code-func">c</span>(<span class="code-var">"cfi.robust"</span>, <span class="code-var">"tli.robust"</span>, <span class="code-var">"rmsea.robust"</span>, <span class="code-var">"srmr"</span>))
+
+<span class="code-comment"># Tabela de coeficientes estruturais e R²</span>
+<span class="code-func">parameterEstimates</span>(fit_sem, standardized = TRUE) %&gt;%
+  <span class="code-func">filter</span>(op %in% <span class="code-func">c</span>(<span class="code-var">"~"</span>, <span class="code-var">":="</span>)) %&gt;%
+  <span class="code-func">select</span>(lhs, op, rhs, std.all, pvalue, ci.lower, ci.upper)</code></pre>
+        </div>
+
+        <!-- Tab 4 -->
+        <div id="tab-plot" class="tab-content">
+          <pre><button class="copy-btn" onclick="copyCode(this)">Copiar</button><code><span class="code-comment"># --- 4. EXPORTAÇÃO GRÁFICA EM ALTA DEFINIÇÃO (300 DPI) ---</span>
+<span class="code-func">tiff</span>(<span class="code-var">"Figure1_PathDiagram_JPD.tiff"</span>, width = 3000, height = 2200, res = 300)
+
+<span class="code-func">semPaths</span>(
+  fit_sem,
+  what         = <span class="code-var">"std"</span>,         <span class="code-comment"># Apresenta coeficientes padronizados</span>
+  layout       = <span class="code-var">"tree2"</span>,       <span class="code-comment"># Organização em árvore hierárquica</span>
+  style        = <span class="code-var">"lisrel"</span>,      <span class="code-comment"># Estilo clássico para periódicos científicos</span>
+  residuals    = FALSE,         <span class="code-comment"># Remove poluição visual das flechas de erro</span>
+  exoCov       = FALSE,         <span class="code-comment"># Omite correlações bidirecionais das exógenas</span>
+  edge.label.cex = 0.85,
+  sizeLat      = 9,
+  sizeMan      = 5,
+  color        = <span class="code-func">list</span>(lat = <span class="code-var">"#f0fdf4"</span>, man = <span class="code-var">"#ffffff"</span>),
+  edge.color   = <span class="code-var">"#1e293b"</span>
+)
+
+<span class="code-func">dev.off</span>()</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulo 5: Métricas & Resultados Chave -->
+    <section id="modulo5">
+      <h3 class="section-title">5. Tabela Síntese para a Tese/Artigo</h3>
+      <div class="card">
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Compare a força preditiva relativa entre os fatores subjetivos (Espiritualidade) e as variáveis estruturais duras (Renda Familiar):
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Caminho Hipotetizado</th>
+              <th>Preditor</th>
+              <th>Desfecho</th>
+              <th>&beta; Padronizado</th>
+              <th>Erro Padrão</th>
+              <th>p-valor</th>
+              <th>Status Teórico</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Impacto Primário</td>
+              <td>Espiritualidade</td>
+              <td>Psicológico</td>
+              <td class="highlight-cell">0.91</td>
+              <td>0.04</td>
+              <td>&lt; .001</td>
+              <td>Confirmado (Forte)</td>
+            </tr>
+            <tr>
+              <td>O Buffer Material</td>
+              <td>Espiritualidade</td>
+              <td>Ambiente</td>
+              <td class="highlight-cell">0.86</td>
+              <td>0.04</td>
+              <td>&lt; .001</td>
+              <td>Confirmado (5.7x Renda)</td>
+            </tr>
+            <tr>
+              <td>Controle Econômico</td>
+              <td>Renda Familiar</td>
+              <td>Ambiente</td>
+              <td>0.15</td>
+              <td>0.01</td>
+              <td>&lt; .001</td>
+              <td>Significativo, mas modesto</td>
+            </tr>
+            <tr>
+              <td>Engajamento Ritual</td>
+              <td>FAy (Frequência)</td>
+              <td>Espiritualidade</td>
+              <td class="highlight-cell">0.10</td>
+              <td>0.04</td>
+              <td>.007</td>
+              <td>Mediação Ativa</td>
+            </tr>
+            <tr>
+              <td>Antiguidade Institucional</td>
+              <td>T.UDV (Tempo)</td>
+              <td>Espiritualidade</td>
+              <td style="color: var(--accent-rose);">0.02</td>
+              <td>0.02</td>
+              <td>.263</td>
+              <td>Não Significativo</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout leaf">
+          <strong>O que responder na banca de qualificação ou para revisores:</strong><br />
+          <em>"A não significância do Tempo de UDV (p = .263) não é uma falha metodológica, mas sim um achado substancial: a experiência transformadora da ayahuasca requer manutenção ritual contínua (estado-dependente), e não apenas acúmulo passivo de anos de membresia."</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulo 6: Guia de Redação para o JPD -->
+    <section id="modulo6">
+      <h3 class="section-title">6. Guia Passo a Passo para Escrever o Artigo</h3>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4 style="color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 0.5rem;">Introdução (Sem HARKing)</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Construa o funil conceitual partindo do contexto global da ayahuasca até as hipóteses formais:
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1rem;">
+            <li><strong>Parágrafo 1:</strong> A transição do uso indígena para contextos urbanos organizados (UDV) e o interesse psicofarmacológico.</li>
+            <li><strong>Parágrafo 2:</strong> A virada salutogênica: em vez de apenas medir redução de depressão em doentes, estudar bem-estar sustentado em usuários experientes.</li>
+            <li><strong>Parágrafo 3:</strong> A espiritualidade como mecanismo psicológico (teoria da conectividade e comunhão).</li>
+            <li><strong>Parágrafo 4:</strong> Apresentação das Hipóteses: postular que o engajamento ritual prediz qualidade de vida mediado pela espiritualidade, superando a renda.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4 style="color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 0.5rem;">Métodos & Análise de Dados</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Termos técnicos indispensáveis para validar o artigo perante revisores quantitativos:
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1rem;">
+            <li><strong>Amostra:</strong> Descrever critérios de triagem (1.414 &rarr; 1.365 analítico) e consentimento ético.</li>
+            <li><strong>Justificativa do DWLS:</strong> Citar <em>Li (2016)</em> para demonstrar por que o estimador para dados ordinais é superior ao ML tradicional com escalas Likert.</li>
+            <li><strong>Fator de Segunda Ordem:</strong> Explicar a hierarquia psicométrica: 32 itens &rarr; 8 facetas de 1ª ordem &rarr; 1 Fator Geral de Espiritualidade.</li>
+            <li><strong>Pontos de Corte de Ajuste:</strong> Declarar a priori CFI/TLI &ge; 0.95 e RMSEA &le; 0.06 como parâmetros de bom ajuste.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4 style="color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 0.5rem;">Resultados: A Ordem da Narrativa</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Nunca comece interpretando; reporte a estrutura matemática estrita:
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1rem;">
+            <li><strong>1. Modelo de Mensuração:</strong> Reportar que a CFA confirmou cargas fatoriais &gt; 0.40 para todos os itens e CFI = 0.99.</li>
+            <li><strong>2. Modelo Estrutural:</strong> Apresentar a tabela APA de coeficientes diretos (&beta;, SE, z, p).</li>
+            <li><strong>3. O Efeito Buffer:</strong> Comparar visualmente na tabela que a espiritualidade explica 42% da variância ambiental frente a 2% da renda.</li>
+            <li><strong>4. Mediação:</strong> Reportar os coeficientes indiretos (delta method ou bootstrap) confirmando a via <code>FAy &rarr; Espiritualidade &rarr; QV</code>.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4 style="color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 0.5rem;">Discussão: Como "Vender" o Paper</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Conecte os dados à literatura internacional de psicodélicos:
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--text-main); display: flex; flex-direction: column; gap: 0.5rem; padding-left: 1rem;">
+            <li><strong>Riqueza Interna vs. Externa:</strong> Discutir que a espiritualidade atua como recurso cognitivo protetor que ressignifica o ambiente material.</li>
+            <li><strong>A Relevância da Frequência:</strong> A necessidade de integração e ritualização contínua; não há "imunidade perpétua" conferida pelo tempo passado.</li>
+            <li><strong>Limitações Obrigatórias:</strong> Reconhecer o viés de auto-seleção (quem respondeu ao questionário provavelmente gosta da instituição) e a natureza transversal.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulo 7: Glossário Psicométrico Interativo -->
+    <section id="glossario">
+      <h3 class="section-title">7. Glossário Psicométrico e Estatístico</h3>
+      <div class="card">
+        <input type="text" id="glossary-filter" class="search-box" placeholder="Digite para filtrar termos (ex: DWLS, CFI, Mediação, Latente)..." onkeyup="filterGlossary()" />
+
+        <div id="glossary-list">
+          <div class="glossary-item">
+            <div class="glossary-term">DWLS (Diagonally Weighted Least Squares) / WLSMV</div>
+            <div class="glossary-desc">Estimador robusto de equações estruturais projetado especificamente para variáveis categóricas ou ordinais (escalas Likert de 1 a 5). Diferente da Máxima Verossimilhança (ML), não exige normalidade multivariada contínua.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">Variável Latente vs. Observada</div>
+            <div class="glossary-desc">Variável Observada (manifesta) é aquela medida diretamente pelo questionário (ex: nota de 1 a 5 no item de sono). Variável Latente é o construto abstrato livre de erro de mensuração, deduzido a partir da covariância compartilhada de múltiplos itens (ex: Domínio Psicológico).</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">CFI (Comparative Fit Index) & TLI (Tucker-Lewis Index)</div>
+            <div class="glossary-desc">Índices de ajuste incremental que comparam o modelo hipotetizado a um modelo nulo basal. Valores acima de 0.95 indicam excelente conformidade teórica aos dados. O valor 0.99 obtido neste estudo demonstra precisão quase perfeita.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">RMSEA (Root Mean Square Error of Approximation)</div>
+            <div class="glossary-desc">Índice de discrepância residual por grau de liberdade. Avalia o quanto o modelo difere da matriz populacional verdadeira. Valores &le; 0.06 indicam ajuste estrito; até 0.08 é considerado adequado na literatura psicométrica.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">Mediação (Efeito Indireto: a &times; b)</div>
+            <div class="glossary-desc">Ocorre quando a influência de uma variável independente (X: Frequência) sobre uma dependente (Y: Qualidade de Vida) transita por uma variável intermediária (M: Espiritualidade). O efeito indireto estatisticamente significativo prova a existência desse mecanismo condutor.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">Heywood Case / Casos Extremos de R²</div>
+            <div class="glossary-desc">Ocorre quando uma estimativa atinge fronteiras teóricas (ex: variância de erro zero ou R² = 1.00, como visto no item Fe.Confort.Dia). Em amostras grandes, geralmente reflete um indicador quase perfeitamente colinear ao construto latente, devendo ser auditado no texto do artigo.</div>
+          </div>
+          <div class="glossary-item">
+            <div class="glossary-term">HARKing (Hypothesizing After Results are Known)</div>
+            <div class="glossary-desc">Prática inadequada de apresentar achados inesperados como se fossem hipóteses formuladas antes da coleta. Para evitar isso, formulamos hipóteses baseadas em teorias consolidadas de engajamento ritual e resiliência psicológica antes de relatar a assimetria entre Frequência e Tempo.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Gerenciador de abas de código
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Copiador de código
+    function copyCode(button) {
+      const codeBlock = button.nextElementSibling;
+      const text = codeBlock.innerText;
+
+      navigator.clipboard.writeText(text).then(() => {
+        button.innerText = 'Copiado!';
+        setTimeout(() => { button.innerText = 'Copiar'; }, 2000);
+      });
+    }
+
+    // Inspetor interativo de nós do Path Diagram
+    const nodeData = {
+      fay: {
+        title: "FAy: Frequência de Consumo de Ayahuasca",
+        body: "<strong>Caminho Direto:</strong> &beta; = 0.10 (p = .007) sobre a Espiritualidade.<br/><strong>Efeito Indireto:</strong> Significativo em todos os domínios de QV (p < .01).<br/><strong>Interpretação para o Artigo:</strong> Demonstra que o engajamento ritual contínuo atua como motor do cultivo espiritual, validando a teoria de que os benefícios dependem da prática recorrente."
+      },
+      tudv: {
+        title: "T.UDV: Tempo de Filiação à Instituição",
+        body: "<strong>Caminho Direto:</strong> &beta; = 0.02 (p = .263, Não Significativo).<br/><strong>Efeito Indireto:</strong> Inexpressivo estatisticamente.<br/><strong>Interpretação para o Artigo:</strong> O tempo cumulativo passivo de membresia não gera, por si só, maior espiritualidade ou bem-estar. Não há 'privilégio de antiguidade' automático na saúde mental sem a prática ativa."
+      },
+      renda: {
+        title: "Renda Familiar (Covariável Socioeconômica)",
+        body: "<strong>Efeito no Domínio Ambiente:</strong> &beta; = 0.15 (p < .001).<br/><strong>Efeito no Domínio Psicológico:</strong> &beta; = 0.02 (p = .002).<br/><strong>O 'Pulo do Gato':</strong> Embora o dinheiro ajude na segurança material, seu poder de predição é quase seis vezes menor do que a Espiritualidade (&beta; = 0.86). A sensação de proteção e satisfação ambiental é primariamente espiritual."
+      },
+      espiritualidade: {
+        title: "Espiritualidade Geral (Fator de 2ª Ordem WHOQOL-SRPB)",
+        body: "<strong>Estrutura:</strong> Agrega 8 facetas de 1ª ordem. As maiores cargas foram <em>Integração Mente-Corpo-Alma (R² = 0.90)</em> e <em>Força Espiritual (R² = 0.88)</em>.<br/><strong>Papel no Modelo:</strong> Atua como o mediador nuclear que canaliza a experiência ritual e a transforma em resiliência cotidiana."
+      },
+      psico: {
+        title: "Domínio Psicológico (WHOQOL-BREF)",
+        body: "<strong>Efeito Recebido:</strong> &beta; = 0.91 (p < .001).<br/><strong>Variância Explicada (R²):</strong> 63%.<br/><strong>Interpretação:</strong> Relação de magnitude massiva. No contexto da UDV, a saúde psicológica e o bem-estar espiritual operam em simbiose quase completa."
+      },
+      ambiente: {
+        title: "Domínio Meio Ambiente (WHOQOL-BREF)",
+        body: "<strong>Efeito Recebido:</strong> &beta; = 0.86 (p < .001).<br/><strong>R²:</strong> 42%.<br/><strong>Destaque para o Abstract:</strong> Prova que o indivíduo espiritualmente conectado avalia suas condições materiais, moradia e comunidade de forma substancialmente mais favorável, neutralizando carências econômicas relativas."
+      },
+      social: {
+        title: "Domínio Relações Sociais (WHOQOL-BREF)",
+        body: "<strong>Efeito Recebido:</strong> &beta; = 0.82 (p < .001).<br/><strong>R²:</strong> 35%.<br/><strong>Interpretação:</strong> Reflete a força da vivência comunitária (irmandade da UDV). A espiritualidade compartilhada estreita laços interpessoais e gera suporte social percebido."
+      },
+      fisico: {
+        title: "Domínio Físico (WHOQOL-BREF)",
+        body: "<strong>Efeito Recebido:</strong> &beta; = 0.36 (p < .001).<br/><strong>R²:</strong> 28%.<br/><strong>Validade Discriminante:</strong> O coeficiente mais moderado confirma que os participantes distinguem sensações corpóreas/fisiológicas de estados mentais e espirituais, afastando vieses de halo generalizado."
+      }
+    };
+
+    function inspectNode(nodeKey) {
+      document.querySelectorAll('.node').forEach(n => n.classList.remove('active-node'));
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active-node');
+      }
+      const data = nodeData[nodeKey];
+      const output = document.getElementById('inspector-output');
+      output.innerHTML = `<h4 style="color: var(--accent-gold-light); margin-bottom: 0.4rem;">${data.title}</h4><p style="font-size: 0.88rem; color: var(--text-main);">${data.body}</p>`;
+    }
+
+    // Filtro interativo do glossário
+    function filterGlossary() {
+      const query = document.getElementById('glossary-filter').value.toLowerCase();
+      const items = document.querySelectorAll('.glossary-item');
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    }
+
+    // Smooth scroll para navegação
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
